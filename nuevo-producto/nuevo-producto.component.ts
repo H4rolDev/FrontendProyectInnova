@@ -1,32 +1,33 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Producto, ProductoBody } from 'src/app/shared/models/producto';
-import { ProductoService } from 'src/app/shared/services/producto.service';
-
-@Component({
-  selector: 'app-nuevo-producto',
-  templateUrl: './nuevo-producto.component.html',
-  styleUrls: ['./nuevo-producto.component.css']
-})
-
-export class NuevoProductoComponent implements OnInit {
-  cargaDatos: 'none' | 'loading' | 'done' | 'error' = "none";
-  createProductState: 'none' | 'loading' | 'done' | 'error' = "none";
-  products: Producto[] = [];
-  showFormProduct: 'none' | 'edit' | 'add' = 'none';
-  formProducto: FormGroup;
-  constructor(private router: Router, private productoService: ProductoService,
-    private fb: FormBuilder) {
-      // Validaciones
-      this.formProducto = this.fb.group({
-        Nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-      });
-     }
-
-  navigateTo(route: string) {
-    this.router.navigate([route]);
-  }
+  import { Component, HostListener, OnInit } from '@angular/core';
+  import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+  import { Router } from '@angular/router';
+  import { Producto, ProductoBody } from 'src/app/shared/models/producto';
+  import { ProductoService } from 'src/app/shared/services/producto.service';
+  import { CommonModule } from '@angular/common';
+  
+  @Component({
+    selector: 'app-nuevo-producto',
+    templateUrl: './nuevo-producto.component.html',
+    styleUrls: ['./nuevo-producto.component.css']
+  })
+  
+  export class NuevoProductoComponent implements OnInit {
+    cargaDatos: 'none' | 'loading' | 'done' | 'error' = "none";
+    createProductState: 'none' | 'loading' | 'done' | 'error' = "none";
+    products: Producto[] = [];
+    showFormProduct: 'none' | 'edit' | 'add' = 'none';
+    formProducto: FormGroup;
+    constructor(private router: Router, private productoService: ProductoService,
+      private fb: FormBuilder) {
+        // Validaciones
+        this.formProducto = this.fb.group({
+          Nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+        });
+       }
+  
+    navigateTo(route: string) {
+      this.router.navigate([route]);
+    }
 
   /* Propiedades de la barra lateral ******************************** */
   sidebar!: HTMLElement | null;
