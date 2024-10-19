@@ -1,0 +1,32 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 40;
+}
+
+.sidebar_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 256px; /* Ancho fijo de 256px */
+  flex-shrink: 0; /* Evita que se encoja */
+  z-index: 50;
+  transition: transform 0.3s ease; /* Animación para mostrar/ocultar */
+  transform: translateX(-100%); /* Oculta el sidebar al cargar la página */
+}
+
+.sidebar_container.show {
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .sidebar_container {
+    transform: none;
+    position: relative;
+  }
+}

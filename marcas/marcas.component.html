@@ -1,0 +1,500 @@
+<!-- No borrar el hidden ni el fex en los mensajes amarillos -->
+<!-- Encabezado  -->
+<div class="contenido1 w-full">
+    <div class="flex flex-col w-full">
+        <header class="bg-indigo-700 text-white shadow-xl h-14 flex items-center px-4 py-2 w-full">
+            <button id="menu-btn" class="md:hidden text-white font-bold text-lg rounded-lg p-1 mr-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" id="menu-icon" fill="none" viewBox="0 0 24 24"
+                    stroke-width="2.5" stroke="currentColor" width="30" height="30" class="h-30 w-30">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            <button (click)="navigateTo('administracion/inicio')"
+                class="relative flex justify-start items-center w-48 p-1 h-14 overflow-hidden">
+                <img src="assets/images/image (1).png" alt="My Image">
+            </button>
+            <div class="flex-grow"></div>
+            <ul class="flex items-center font-bold mr-4">
+                <li class="flex items-center">
+                    <button class="material-symbols-outlined">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path
+                                d="M6 3a3 3 0 0 0-3 3v2.25a3 3 0 0 0 3 3h2.25a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H6ZM15.75 3a3 3 0 0 0-3 3v2.25a3 3 0 0 0 3 3H18a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3h-2.25ZM6 12.75a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h2.25a3 3 0 0 0 3-3v-2.25a3 3 0 0 0-3-3H6ZM17.625 13.5a.75.75 0 0 0-1.5 0v2.625H13.5a.75.75 0 0 0 0 1.5h2.625v2.625a.75.75 0 0 0 1.5 0v-2.625h2.625a.75.75 0 0 0 0-1.5h-2.625V13.5Z" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+            <ul class="flex items-center font-bold mr-4">
+                <li class="flex items-center">
+                    <button class="material-symbols-outlined">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd"
+                                d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+            <ul class="flex items-center font-bold mr-4">
+                <li class="flex items-center">
+                    <button class="material-symbols-outlined">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </header>
+    </div>
+</div>
+
+<div class="contenido2 h-screen w-full flex">
+    <!-- Esto es para el fondo negro de la pantalla cuando esta reducida la pantalla -->
+    <div id="overlay" class="overlay"></div>
+    <!-- Barra lateral -->
+    <nav id="sidebar" class="sidebar_container h-screen flex flex-col bg-black text-white overflow-y-auto">
+        <button id="close-btn"
+            class="block md:hidden absolute top-2 right-2 text-white material-symbols-outlined">close</button>
+        <ul class="px-4 py-2 mt-4 flex-grow">
+            <button (click)="navigateTo('administracion/inicio')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path
+                        d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+                    <path
+                        d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+                </svg>
+                <span class="ml-3">Inicio</span>
+            </button>
+            <li class="title_sidebar py-2 font-bold"><span>Gestión de Ventas</span></li>
+            <button (click)="navigateTo('administracion/gestion/ventas/dashboard')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd"
+                        d="M2.25 13.5a8.25 8.25 0 0 1 8.25-8.25.75.75 0 0 1 .75.75v6.75H18a.75.75 0 0 1 .75.75 8.25 8.25 0 0 1-16.5 0Z"
+                        clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                        d="M12.75 3a.75.75 0 0 1 .75-.75 8.25 8.25 0 0 1 8.25 8.25.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75V3Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="ml-3">Dashboard</span>
+            </button>
+            <button (click)="navigateTo('administracion/gestion/ventas')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd"
+                        d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="ml-3">Ventas</span>
+            </button>
+            <li class="title_sidebar py-2 font-bold"><span>Gestión de Productos</span></li>
+            <button (click)="navigateTo('administracion/gestion/producto/lista')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd"
+                        d="M7.502 6h7.128A3.375 3.375 0 0 1 18 9.375v9.375a3 3 0 0 0 3-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 0 0-.673-.05A3 3 0 0 0 15 1.5h-1.5a3 3 0 0 0-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6ZM13.5 3A1.5 1.5 0 0 0 12 4.5h4.5A1.5 1.5 0 0 0 15 3h-1.5Z"
+                        clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                        d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 0 1 3 20.625V9.375ZM6 12a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H6.75a.75.75 0 0 1-.75-.75V12Zm2.25 0a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75ZM6 15a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H6.75a.75.75 0 0 1-.75-.75V15Zm2.25 0a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75ZM6 18a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H6.75a.75.75 0 0 1-.75-.75V18Zm2.25 0a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="ml-3">Lista de Productos</span>
+            </button>
+            <button (click)="navigateTo('administracion/gestion/producto/vender')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path
+                        d="M5.223 2.25c-.497 0-.974.198-1.325.55l-1.3 1.298A3.75 3.75 0 0 0 7.5 9.75c.627.47 1.406.75 2.25.75.844 0 1.624-.28 2.25-.75.626.47 1.406.75 2.25.75.844 0 1.623-.28 2.25-.75a3.75 3.75 0 0 0 4.902-5.652l-1.3-1.299a1.875 1.875 0 0 0-1.325-.549H5.223Z" />
+                    <path fill-rule="evenodd"
+                        d="M3 20.25v-8.755c1.42.674 3.08.673 4.5 0A5.234 5.234 0 0 0 9.75 12c.804 0 1.568-.182 2.25-.506a5.234 5.234 0 0 0 2.25.506c.804 0 1.567-.182 2.25-.506 1.42.674 3.08.675 4.5.001v8.755h.75a.75.75 0 0 1 0 1.5H2.25a.75.75 0 0 1 0-1.5H3Zm3-6a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3Zm8.25-.75a.75.75 0 0 0-.75.75v5.25c0 .414.336.75.75.75h3a.75.75 0 0 0 .75-.75v-5.25a.75.75 0 0 0-.75-.75h-3Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="ml-3">Vender Productos</span>
+            </button>
+            <button (click)="navigateTo('administracion/gestion/productos/categorias')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path
+                        d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z" />
+                </svg>
+                <span class="ml-3">Categorias</span>
+            </button>
+            <button (click)="navigateTo('administracion/gestion/productos/marcas')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd"
+                        d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="ml-3">Marcas</span>
+            </button>
+            <li class="title_sidebar py-2 font-bold"><span>Gestión de Usuarios</span></li>
+            <button (click)="navigateTo('administracion/gestion/usuarios/empleados')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd"
+                        d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z"
+                        clip-rule="evenodd" />
+                    <path
+                        d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                </svg>
+                <span class="ml-3">Empleados</span>
+            </button>
+            <button (click)="navigateTo('administracion/gestion/usuarios')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path
+                        d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+                </svg>
+                <span class="ml-3">Usuarios</span>
+            </button>
+            <button (click)="navigateTo('administracion/gestion/usuarios/roles')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd"
+                        d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="ml-3">Roles</span>
+            </button>
+            <li class="title_sidebar py-2 font-bold"><span>Relaciones con Proveedores</span></li>
+            <button (click)="navigateTo('administracion/gestion/proveedores')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path
+                        d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+                </svg>
+                <span class="ml-3">Proveedores</span>
+            </button>
+            <button (click)="navigateTo('administracion/gestion/servicioTecnico')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd"
+                        d="M12 6.75a5.25 5.25 0 0 1 6.775-5.025.75.75 0 0 1 .313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 0 1 1.248.313 5.25 5.25 0 0 1-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 1 1 2.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0 1 12 6.75ZM4.117 19.125a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Z"
+                        clip-rule="evenodd" />
+                    <path
+                        d="m10.076 8.64-2.201-2.2V4.874a.75.75 0 0 0-.364-.643l-3.75-2.25a.75.75 0 0 0-.916.113l-.75.75a.75.75 0 0 0-.113.916l2.25 3.75a.75.75 0 0 0 .643.364h1.564l2.062 2.062 1.575-1.297Z" />
+                    <path fill-rule="evenodd"
+                        d="m12.556 17.329 4.183 4.182a3.375 3.375 0 0 0 4.773-4.773l-3.306-3.305a6.803 6.803 0 0 1-1.53.043c-.394-.034-.682-.006-.867.042a.589.589 0 0 0-.167.063l-3.086 3.748Zm3.414-1.36a.75.75 0 0 1 1.06 0l1.875 1.876a.75.75 0 1 1-1.06 1.06L15.97 17.03a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="ml-3">Servicio Técnico</span>
+            </button>
+        </ul>
+        <ul class="px-4 py-2 mt-auto text-white">
+            <button (click)="navigateTo('administracion/inicio')"
+                class="flex items-center py-2 rounded-lg text-sm w-full hover:bg-gray-900 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd"
+                        d="M7.5 3.75A1.5 1.5 0 0 0 6 5.25v13.5a1.5 1.5 0 0 0 1.5 1.5h6a1.5 1.5 0 0 0 1.5-1.5V15a.75.75 0 0 1 1.5 0v3.75a3 3 0 0 1-3 3h-6a3 3 0 0 1-3-3V5.25a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3V9A.75.75 0 0 1 15 9V5.25a1.5 1.5 0 0 0-1.5-1.5h-6Zm5.03 4.72a.75.75 0 0 1 0 1.06l-1.72 1.72h10.94a.75.75 0 0 1 0 1.5H10.81l1.72 1.72a.75.75 0 1 1-1.06 1.06l-3-3a.75.75 0 0 1 0-1.06l3-3a.75.75 0 0 1 1.06 0Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="ml-3 ">Cerrar sesión</span>
+            </button>
+        </ul>
+    </nav>
+    <!-- ************************************************************************************************** -->
+    <!-- Contenido principal -->
+    <div class="w-full mt-2 p-4 bg-gray-200 overflow-y-auto">
+        <div id="scrollable-content"
+            class="relative flex flex-col w-full h-full p-2 text-black bg-white shadow-md rounded-xl">
+            <div class="relative flex flex-col w-full overflow-y-auto bg-white">
+                <!-- Aquí puedes agregar más contenido que se apilará hacia abajo -->
+                <div class="relative mx-4 mt-4  text-slate-700 bg-white rounded-none bg-clip-border">
+                    <div class="flex items-center justify-end p-4">
+                        <div class="flex flex-col gap-2 shrink-0 sm:flex-row">
+                            <button (click)="navigateTo('administracion/gestion/productos/marcas/nuevo')"
+                                class="bg-blue-400 rounded-md py-2 px-4 text-center text-sm font-semibold text-white flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6">
+                                    <path fill-rule="evenodd"
+                                        d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span>Nueva marca</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-4">
+                        <div class="text-2xl font-extrabold ...">
+                            <span class="bg-clip-text text-black">
+                                Marca
+                            </span>
+                        </div>
+                        <div class="relative">
+                            <input type="text" class="border rounded-lg pl-10 pr-4 py-2" placeholder="Search..." />
+                            <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-0 overflow-scroll">
+                    <table class="w-full mt-4 text-left table-auto min-w-max ">
+                        <thead>
+                            <tr>
+                                <th class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50">
+                                    <div
+                                        class="flex items-center justify-between gap-2 font-sans text-sm font-bold leading-none text-black">
+                                        <p>Código</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50">
+                                    <div
+                                        class="flex items-center justify-between gap-2 font-sans text-sm font-bold leading-none text-black">
+                                        <p>Nombre</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50">
+                                    <div
+                                        class="flex items-center gap-2 font-sans text-sm font-bold leading-none text-black">
+                                        <p>Descripcion</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50">
+                                    <div
+                                        class="flex items-center gap-2 font-sans text-sm font-bold leading-none text-black">
+                                        <p>Estado</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                                        </svg>
+                                    </div>
+                                </th>
+
+                                <th class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50">
+                                    <div
+                                        class="flex items-center gap-2 font-sans text-sm font-bold leading-none text-black">
+                                        <p>Accion</p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex items-center gap-3">
+                                        <p class="text-sm font-semibold text-slate-700">
+                                            001
+                                        </p>
+                                    </div>
+                                </td>
+
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex items-center gap-3">
+                                        <p class="text-sm font-semibold text-slate-700">
+                                            Asus
+                                        </p>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex items-center gap-3">
+                                        <p class="text-sm font-semibold text-slate-700 break-words max-w-xs">
+                                            Productos relacionados con pantallas y monitores de diferentes tamaños y
+                                            resoluciones.
+                                        </p>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex items-center gap-3 bg-red-300 rounded-full p-1">
+                                        <p class="text-sm font-semibold text-slate-700">
+                                            Inactivo
+                                        </p>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex space-x-2">
+                                        <button id="btnOpenEdit" class="bg-green-400 p-2 rounded-full btnOpenModal"
+                                            aria-label="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                            </svg>
+                                        </button>
+                                        <button class="bg-red-400 p-2 rounded-full btn-open-confirm" data-modal-id="1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex items-center gap-3">
+                                        <p class="text-sm font-semibold text-slate-700">
+                                            001
+                                        </p>
+                                    </div>
+                                </td>
+
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex items-center gap-3">
+                                        <p class="text-sm font-semibold text-slate-700">
+                                            Monitor
+                                        </p>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex items-center gap-3">
+                                        <p class="text-sm font-semibold text-slate-700 break-words max-w-xs">
+                                            Productos relacionados con pantallas y monitores de diferentes tamaños y
+                                            resoluciones.
+                                        </p>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex items-center gap-3 bg-green-300 rounded-full p-1">
+                                        <p class="text-sm font-semibold text-slate-700">
+                                            Activo
+                                        </p>
+                                    </div>
+                                </td>
+                                <td class="p-4 border-b border-slate-200">
+                                    <div class="flex space-x-2">
+                                        <button id="btnOpenEdit" class="bg-green-400 p-2 rounded-full btnOpenModal"
+                                            aria-label="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                            </svg>
+                                        </button>
+                                        <button class="bg-red-400 p-2 rounded-full btn-open-confirm" data-modal-id="1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Actualizar Productos -->
+<div id="modalEdit" class="flex flex-col fixed inset-0 items-center justify-center hidden z-50"
+    style="background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(1px);">
+    <div class="bg-white p-1 rounded-lg shadow-lg">
+        <div class="w-full max-w-md bg-white rounded-lg mx-2 p-4 relative overflow-y-auto"
+            style="padding-top: 1vh; padding-bottom: 1vh; min-height: 30vh; max-height: 85vh;">
+            <button class="absolute top-2 right-2 text-black text-4xl md:text-6xl lg:text-7xl font-bold"
+                id="btnCloseEdit" (click)="openConfirmClearModal()">
+                ×
+            </button>
+
+            <div class="w-full max-h-[75vh]">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Actualizar Categoria</h2>
+                </div>
+                <form>
+                    <div class="mb-4">
+                        <label class="block text-sm text-gray-700">Nombre</label>
+                        <input type="text"
+                            class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                            required />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm text-gray-700">Descripcion</label>
+                        <input type="text"
+                            class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                            required />
+                    </div>
+
+                    <div class="flex space-x-4 mb-6">
+
+                        <div class="flex-1">
+                            <label class="block text-sm text-gray-700">Estado</label>
+                            <select
+                                class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                                required>
+                                <option value="" disabled selected>Seleccione un estado</option>
+                                <option class="bg-green-100">Activo</option>
+                                <option class="bg-red-100">Inactivo</option>
+                                <option class="bg-yellow-100">Suspendido</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex justify-end items-center gap-5">
+                        <button type="button" class="flex text-red-800" id="btnCancelEdit"
+                            (click)="openConfirmClearModal()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <span>Cancelar</span>
+                        </button>
+                        <button type="button" class="flex text-blue-800" id="btnSaveEdit">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                            </svg>
+                            <span>Guardar</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal de Confirmación si de desea desacer -->
+            <div id="confirmClearModal"
+                class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50"
+                style="background-color: rgba(0, 0, 0, 0.5);">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+                    <h3 class="text-lg font-semibold mb-4">Confirmación</h3>
+                    <p class="mb-4">¿Deseas proceder con esta acción?</p>
+                    <div class="flex justify-end">
+                        <button id="btnConfirmYes" type="button"
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2"
+                            (click)="confirmClear()">Sí</button>
+                        <button id="btnConfirmNo" type="button"
+                            class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"
+                            (click)="closeConfirmClearModal()">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmación -->
+<div id="confirm-clear-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50"
+    style="background-color: rgba(0, 0, 0, 0.5);">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+        <h3 class="text-lg font-semibold mb-4">Confirmación</h3>
+        <p class="mb-4">¿Deseas proceder con esta acción?</p>
+        <div class="flex justify-end">
+            <button id="btn-confirm-yes" type="button"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2">Sí</button>
+            <button id="btn-confirm-no" type="button"
+                class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">No</button>
+        </div>
+    </div>
+</div>
